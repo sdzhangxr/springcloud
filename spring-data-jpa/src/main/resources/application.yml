@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///jpa?serverTimezone=UTC
+    username: root
+    password: 111111
+  #jpa配置
+  jpa:
+    generate-ddl: true #开启逆向工程。逆向工程：数据库表生成实体类;正向工程：实体类生成数据库表
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
