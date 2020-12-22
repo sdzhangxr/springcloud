@@ -22,7 +22,8 @@ public class Clazz {
     /**
      * 配置映射关系
      */
-    @OneToMany(mappedBy = "clazz",fetch = FetchType.EAGER)
+//    @OneToMany(mappedBy = "clazz",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "clazz",cascade = CascadeType.ALL)
     private List<Student> list;
 
     public int getCid() {

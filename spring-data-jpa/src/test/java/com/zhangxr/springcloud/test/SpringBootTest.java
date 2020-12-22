@@ -317,7 +317,7 @@ public class SpringBootTest {
      * @return void
      */
     @Test
-    public void getCStudentInfo(){
+    public void getStudentInfo(){
         //多对一：@ManyToOne 立即加载
         List<Student> list = studentDao.findAll();
         for (Student student : list) {
@@ -326,6 +326,53 @@ public class SpringBootTest {
             if (clazz != null) System.out.println(clazz.getCid() + "\t" + clazz.getCname());
             System.out.println("-----------------------");
         }
+    }
+
+    /***
+     * @Author sdzha
+     * @Description 删除班级
+     * @Date 2020/12/22 10:58
+     * @Param []
+     * @return void
+     */
+    @Test
+    public void delClazzInfo(){
+        //前提：删除之前班级没有关联学生
+        Clazz clazz = new Clazz();
+        clazz.setCid(1);
+        clazzDao.delete(clazz);
+//        clazzDao.deleteById(1);
+
+        /**
+         * 删除之前班级有关联学生，会报错
+         *  Cannot delete or update a parent row: a foreign key constraint fails (`jpa`.`t_student`, CONSTRAINT `FKdoqw5tbx714ymdae2apufdo1k` FOREIGN KEY (`cid`) REFERENCES `t_clazz` (`cid`))
+         *  无法删除或更新父行：外键约束失败（`jpa`.`t_student`，约束`FKdoqw5tbx714ymdae2apufdo1k`外键（`cid`）引用`t_clazz`（`cid`）
+         *  解决：
+         *  1.级联删除
+         *  @OneToMany(mappedBy = "clazz",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+         *      cascade = CascadeType.ALL       级联所有操作
+         *      cascade = CascadeType.PERSIST   级联持久化操作
+         *      cascade = CascadeType.MERGE     级联合并操作
+         *      cascade = CascadeType.REMOVE    级联删除操作
+         *      cascade = CascadeType.REFRESH   级联刷新操作
+         *      cascade = CascadeType.DETACH    级联分离操作
+         *  2.先断开主外键连接，在删除主表数据
+         *
+         */
+    }
+
+    /***
+     * @Author sdzha
+     * @Description 删除学生信息
+     * @Date 2020/12/22 10:59
+     * @Param []
+     * @return void
+     */
+    @Test
+    public void delStudentInfo(){
+        Student student = new Student();
+        student.setSid(2);
+        studentDao.delete(student);
     }
 }
 
