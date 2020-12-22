@@ -279,8 +279,52 @@ public class SpringBootTest {
     @Test
     public void getClazzInfo(){
         List<Clazz> list = clazzDao.findAll();
+        /**
+         *  查询的sql语句：
+         *      select clazz0_.cid as cid1_0_, clazz0_.cname as cname2_0_ from t_clazz clazz0_
+         *    可见并没有查询班级信息，这样属于懒加载查询。
+         *  查询班级中的学生时：
+         *      出现 no session 异常。
+         *  原因：
+         *      1.当查询班级信息结束，session关闭
+         *      2.再次调用dao查询学生信息，就会出现no session
+         *  解决：
+         *      1.设置立即加载
+         *        @OneToMany(mappedBy = "clazz",fetch = FetchType.EAGER)
+         *          FetchType.EAGER  立即加载
+         *          FetchType.LAZY   立即加载
+         *       查询的sql
+         *          Hibernate: select clazz0_.cid as cid1_0_, clazz0_.cname as cname2_0_ from t_clazz clazz0_
+         *          Hibernate: select list0_.cid as cid3_1_0_, list0_.sid as sid1_1_0_, list0_.sid as sid1_1_1_, list0_.cid as cid3_1_1_, list0_.sname as sname2_1_1_ from t_student list0_ where list0_.cid=?
+         *          Hibernate: select list0_.cid as cid3_1_0_, list0_.sid as sid1_1_0_, list0_.sid as sid1_1_1_, list0_.cid as cid3_1_1_, list0_.sname as sname2_1_1_ from t_student list0_ where list0_.cid=?
+         *      2.延长session的生命周期
+         *
+         */
         for (Clazz clazz : list) {
-            System.out.println(clazz.getCid()+ "\t" + clazz.getCname());
+            System.out.println("班级信息：" + clazz.getCid()+ "\t" + clazz.getCname());
+            List<Student> list1 = clazz.getList();
+            for (Student student : list1) {
+                System.out.println("学生信息：" + student.getSid() + "\t" + student.getSname() + "\t");
+            }
+        }
+    }
+
+    /***
+     * @Author sdzha
+     * @Description 查询班级信息
+     * @Date 2020/12/22 10:01
+     * @Param []
+     * @return void
+     */
+    @Test
+    public void getCStudentInfo(){
+        //多对一：@ManyToOne 立即加载
+        List<Student> list = studentDao.findAll();
+        for (Student student : list) {
+            System.out.println(student.getSid() + "\t" + student.getSname());
+            Clazz clazz = student.getClazz();
+            if (clazz != null) System.out.println(clazz.getCid() + "\t" + clazz.getCname());
+            System.out.println("-----------------------");
         }
     }
 }

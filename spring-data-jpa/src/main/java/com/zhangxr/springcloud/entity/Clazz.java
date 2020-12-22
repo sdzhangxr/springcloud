@@ -22,7 +22,7 @@ public class Clazz {
     /**
      * 配置映射关系
      */
-    @OneToMany(mappedBy = "clazz")
+    @OneToMany(mappedBy = "clazz",fetch = FetchType.EAGER)
     private List<Student> list;
 
     public int getCid() {
