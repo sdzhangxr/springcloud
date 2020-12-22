@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -373,6 +374,37 @@ public class SpringBootTest {
         Student student = new Student();
         student.setSid(2);
         studentDao.delete(student);
+    }
+
+    /**
+     * @Author sdzha
+     * @Description TODO
+     * @Date 2020/12/22 11:19
+     * @Param []
+     * @return void
+     */
+    @Test
+    public void addClazzAndStudentInfo(){
+        //新建班级信息
+        Clazz clazz = new Clazz();
+        clazz.setCname("c++");
+        //新建学生信息
+        Student stu1 = new Student();
+        stu1.setSname("李四");
+        Student stu2 = new Student();
+        stu2.setSname("王五");
+        //绑定学生与班级关系
+        stu1.setClazz(clazz);
+        stu2.setClazz(clazz);
+
+        //绑定班级与学生关系
+        List<Student> list = new ArrayList<>();
+        list.add(stu1);
+        list.add(stu2);
+        clazz.setList(list);
+
+        //保存
+        clazzDao.save(clazz);
     }
 }
 
