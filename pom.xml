@@ -29,6 +29,7 @@
       <module>cloud-stream-rabbitmq-consumer8803</module>
       <module>Jasypt</module>
       <module>spring-data-jpa</module>
+      <module>springboot-redis</module>
   </modules>
   <packaging>pom</packaging>
 
