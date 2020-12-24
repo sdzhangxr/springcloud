@@ -30,6 +30,7 @@
       <module>Jasypt</module>
       <module>spring-data-jpa</module>
       <module>springboot-redis</module>
+      <module>spring-jdk8</module>
   </modules>
   <packaging>pom</packaging>
 
