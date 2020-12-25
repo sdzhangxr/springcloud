@@ -1,5 +1,7 @@
 package com.zhangxr.springcloud.lambda;
 
+import java.util.Objects;
+
 /**
  * @className Emp
  * @Description Lamdba表达式，员工对象
@@ -14,6 +16,10 @@ public class Emp {
     private Double salary;
 
     public Emp() {
+    }
+
+    public Emp(int id) {
+        this.id = id;
     }
 
     public Emp(int id, String name, int age, Double salary) {
@@ -63,5 +69,21 @@ public class Emp {
                 ", age=" + age +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Emp emp = (Emp) o;
+        return id == emp.id &&
+                age == emp.age &&
+                Objects.equals(name, emp.name) &&
+                Objects.equals(salary, emp.salary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, age, salary);
     }
 }
