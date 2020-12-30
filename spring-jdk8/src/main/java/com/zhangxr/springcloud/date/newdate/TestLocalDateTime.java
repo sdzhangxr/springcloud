@@ -6,6 +6,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Set;
 
 /**
  * @className TestLocalDateTime
@@ -15,6 +16,20 @@ import java.time.temporal.TemporalAdjusters;
  * @Version 1.0
  */
 public class TestLocalDateTime {
+
+    /**
+     * 带时区的时间：
+     */
+    @Test
+    public void testZone(){
+        Set<String> ids = ZoneId.getAvailableZoneIds();
+//        ids.forEach(System.out::println);
+
+        //获取时间时指定时区
+        LocalDateTime shanghai = LocalDateTime.now(ZoneId.of("Asia/Shanghai"));
+        System.out.println(shanghai);
+    }
+
     /**
      * DateTimeFormatter : 格式化时间日期
      */
