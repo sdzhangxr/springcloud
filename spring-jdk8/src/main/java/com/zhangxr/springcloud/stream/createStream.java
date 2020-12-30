@@ -20,7 +20,7 @@ public class createStream {
             new Emp(2,"李四",18,2345.00),
             new Emp(3,"王五",22,4345.00),
             new Emp(4,"赵六",50,6345.00),
-            new Emp(5,"钱二",45,5345.00)
+            new Emp(5,"田七",45,5345.00)
     };
     //员工信息
     List<Emp> lists = Arrays.asList(emps);

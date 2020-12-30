@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 /**
  * @className IntermediateOperation
- * @Description StreamAPI：中间操作Stream
+ * @Description StreamAPI：中间操作
  *      1.筛选与切片
  *          filter
  *          limit
@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
  *     2.映射
  *          map
  *          flatMap
+ *     3.排序
  *
  * @Author sdzha
  * @Date 2020/12/25 15:31
@@ -99,5 +100,19 @@ public class IntermediateOperation {
                 .map(Emp::getSalary)
                 .forEach(System.out::println);
 
+    }
+
+    //排序
+    @Test
+    public void test6(){
+        //按年龄排，年龄一样按薪资排
+        lists.stream()
+                .sorted((e1,e2) -> {
+                   if (e1.getAge() == e2.getAge()){
+                       return e1.getSalary().compareTo(e2.getSalary());
+                   }else {
+                       return Integer.compare(e1.getAge(),e2.getAge());
+                   }
+                }).forEach(System.out::println);
     }
 }

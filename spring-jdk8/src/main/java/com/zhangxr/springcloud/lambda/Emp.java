@@ -14,6 +14,7 @@ public class Emp {
     private String name;
     private int age;
     private Double salary;
+    private Status status;
 
     public Emp() {
     }
@@ -27,6 +28,14 @@ public class Emp {
         this.name = name;
         this.age = age;
         this.salary = salary;
+    }
+
+    public Emp(int id, String name, int age, Double salary, Status status) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.status = status;
     }
 
     public int getId() {
@@ -61,6 +70,14 @@ public class Emp {
         this.salary = salary;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Emp{" +
@@ -68,6 +85,7 @@ public class Emp {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", salary=" + salary +
+                ", status=" + status +
                 '}';
     }
 
@@ -85,5 +103,11 @@ public class Emp {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, age, salary);
+    }
+
+    public enum Status{
+        FREE,
+        BUSY,
+        VOCATION,
     }
 }
