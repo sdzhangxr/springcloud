@@ -32,6 +32,7 @@
       <module>springboot-redis</module>
       <module>spring-jdk8</module>
       <module>springboot-redisson</module>
+    <module>springboot-ioc</module>
   </modules>
   <packaging>pom</packaging>
 
