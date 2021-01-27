@@ -33,6 +33,7 @@
       <module>spring-jdk8</module>
       <module>springboot-redisson</module>
     <module>springboot-ioc</module>
+    <module>springboot-cache</module>
   </modules>
   <packaging>pom</packaging>
 

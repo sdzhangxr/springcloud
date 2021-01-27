@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.zhangxr.springcloud.entities.SysLog;
 import com.zhangxr.springcloud.entities.User;
-import com.zhangxr.springcloud.service.UserService;
+import com.zhangxr.springcloud.util.cache.service.UserService;
 import com.zhangxr.springcloud.util.LogThreadPool;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.TimeZone;
 
 /**
  * @className LogController

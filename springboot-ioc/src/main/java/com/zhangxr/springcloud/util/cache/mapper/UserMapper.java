@@ -1,4 +1,4 @@
-package com.zhangxr.springcloud.mapper;
+package com.zhangxr.springcloud.util.cache.mapper;
 
 import com.zhangxr.springcloud.entities.User;
 import org.apache.ibatis.annotations.Mapper;

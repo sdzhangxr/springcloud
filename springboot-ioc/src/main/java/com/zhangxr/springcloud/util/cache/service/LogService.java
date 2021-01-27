@@ -1,4 +1,4 @@
-package com.zhangxr.springcloud.service;
+package com.zhangxr.springcloud.util.cache.service;
 
 import com.zhangxr.springcloud.entities.SysLog;
 

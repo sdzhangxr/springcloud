@@ -1,8 +1,8 @@
-package com.zhangxr.springcloud.service.impl;
+package com.zhangxr.springcloud.util.cache.service.impl;
 
 import com.zhangxr.springcloud.entities.User;
-import com.zhangxr.springcloud.mapper.UserMapper;
-import com.zhangxr.springcloud.service.UserService;
+import com.zhangxr.springcloud.util.cache.mapper.UserMapper;
+import com.zhangxr.springcloud.util.cache.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

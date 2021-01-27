@@ -18,7 +18,7 @@ public class LogThreadPool {
 
     private static ExecutorService executorService = Executors.newFixedThreadPool(PublicConstant.threadPoolNum);
     public static void submitLog(SysLog sysLog){
-        executorService.submit(new LogThread(sysLog));
+        executorService.execute(new LogThread(sysLog));
         log.info("-------- 异步处理日志入库 --------");
     }
 }

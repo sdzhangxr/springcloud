@@ -1,14 +1,10 @@
 package com.zhangxr.springcloud.util;
 
 import com.zhangxr.springcloud.entities.SysLog;
-import com.zhangxr.springcloud.service.LogService;
-import com.zhangxr.springcloud.service.impl.LogServiceImpl;
+import com.zhangxr.springcloud.util.cache.service.LogService;
+import com.zhangxr.springcloud.util.cache.service.impl.LogServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.net.InetAddress;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

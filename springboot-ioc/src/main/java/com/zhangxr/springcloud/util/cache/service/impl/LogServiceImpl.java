@@ -1,9 +1,8 @@
-package com.zhangxr.springcloud.service.impl;
+package com.zhangxr.springcloud.util.cache.service.impl;
 
 import com.zhangxr.springcloud.entities.SysLog;
-import com.zhangxr.springcloud.mapper.LogMapper;
-import com.zhangxr.springcloud.service.LogService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.zhangxr.springcloud.util.cache.mapper.LogMapper;
+import com.zhangxr.springcloud.util.cache.service.LogService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
