@@ -34,6 +34,7 @@
       <module>springboot-redisson</module>
     <module>springboot-ioc</module>
     <module>springboot-cache</module>
+      <module>springboot-read-write-splitting</module>
   </modules>
   <packaging>pom</packaging>
 

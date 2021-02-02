@@ -35,7 +35,7 @@ public class CodeCache {
     @Resource
     private CityMapper cityMapper;
 
-//    @PostConstruct
+    @PostConstruct
     public void init() {
         log.info("----------加载provincesMap----------");
         List<Provinces> provincesList = cityMapper.getProvincesList();
@@ -43,6 +43,7 @@ public class CodeCache {
             log.info("----------加载省份：" + provinces.getProvince() + "----------");
             provincesMap.put(provinces.getProvinceid(), provinces);
         }
+//        provincesList.stream().forEach();
         log.info("----------加载citiesMap----------");
         List<Cities> citiesList = cityMapper.getCitiesList();
         for (Cities cities : citiesList) {
@@ -56,7 +57,7 @@ public class CodeCache {
 
     }
 
-//    @PreDestroy
+    @PreDestroy
     public void destroy() {
         log.info("---------- 系统运行结束 ----------");
     }
