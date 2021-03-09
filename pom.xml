@@ -35,6 +35,8 @@
     <module>springboot-ioc</module>
     <module>springboot-cache</module>
       <module>springboot-read-write-splitting</module>
+      <module>cloudalibaba-provider-payment9001</module>
+    <module>cloudalibaba-provider-payment9002</module>
   </modules>
   <packaging>pom</packaging>
 
