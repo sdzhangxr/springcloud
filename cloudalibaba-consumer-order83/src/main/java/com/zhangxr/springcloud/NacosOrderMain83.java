@@ -5,16 +5,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * @className PaymentMain9001
- * @Description nacos服务提供者主启动类
+ * @className NacosOrderMain83
+ * @Description nacos消费者主启动类
  * @Author sdzha
- * @Date 2021/3/9 22:00
+ * @Date 2021/3/9 22:37
  * @Version 1.0
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class PaymentMain9001 {
+public class NacosOrderMain83 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain9001.class,args);
+        SpringApplication.run(NacosOrderMain83.class,args);
     }
 }
