@@ -1,3 +1,8 @@
 spring:
   profiles:
+    # 默认命名空间，默认分组，不同DataId
     active: dev
+    #active: test
+
+    # 默认命名空间，不同分组，相同DataId名
+    #active: info
